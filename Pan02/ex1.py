@@ -64,8 +64,8 @@
 
 # optional exercise 1
 
-
-# import cmath
+#
+# import math
 #
 #
 # first = float(input('Enter a: '))
@@ -79,10 +79,10 @@
 #         return
 #     else:
 #         d = (b ** 2) - (4 * a * c)
-#         sol1 = lambda e, f, g: (-f - cmath.sqrt(g)) / (2 * e)
+#         sol1 = lambda e, f, g: (-f - math.sqrt(g)) / (2 * e)
 #         print("first solution")
-#         print(sol1(a, b, c))
-#         sol2 = lambda e, f, g: (-f + cmath.sqrt(g)) / (2 * e)
+#         print(sol1(a, b, d))
+#         sol2 = lambda e, f, g: (-f + math.sqrt(g)) / (2 * e)
 #         print("second solution")
 #         print(sol2(a, b, d))
 #
@@ -92,20 +92,20 @@
 
 # optional exercise 2
 
-# import os
-#
-#
-# def get_list_of_files(dir_name):
-#     list_of_files = os.listdir(dir_name)
-#     all_files = list()
-#     for entry in list_of_files:
-#         full_path = os.path.join(dir_name, entry)
-#         if os.path.isdir(full_path):
-#             all_files = all_files + get_list_of_files(full_path)
-#         else:
-#             all_files.append(full_path)
-#     return all_files
-#
-#
-# dirName = '/Users/ipan/PycharmProjects/daily_1';
-# print(get_list_of_files(dirName))
+import os
+
+
+def get_list_of_files(dir_name):
+    list_of_files = os.listdir(dir_name)
+    all_files = list()
+    for entry in list_of_files:
+        full_path = os.path.join(dir_name, entry)
+        if os.path.isdir(full_path):
+            all_files = all_files + get_list_of_files(full_path)
+        else:
+            all_files.append(entry)
+    return all_files
+
+
+dirName = '/Users/ipan/PycharmProjects/daily_1';
+print(get_list_of_files(dirName))

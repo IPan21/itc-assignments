@@ -1,5 +1,6 @@
 import logging
 
+
 class Logger:
     @staticmethod
     def add_to_log(msg):
@@ -9,4 +10,3 @@ class Logger:
             logging.debug(msg)
         except Exception as e:
             print(e)
-            logging.debug(e)

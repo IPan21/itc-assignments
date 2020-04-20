@@ -13,12 +13,9 @@ class FileHandler:
     def load_from_csv(file_name):
         try:
             with open(file_name, 'r') as read_obj:
-                # car_list = []
                 csv_read = reader(read_obj)
                 for row in csv_read:
                     print(row)
-                #     car_list.append(row)
-                # print(car_list)
         except Exception as e:
             print(e)
             Logger.add_to_log(e)
@@ -55,9 +52,55 @@ class FileHandler:
             Logger.add_to_log(e)
 
 
-new_row = {'user_id': 8, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'producer', 'salary': 50000, 'role': 'five'}
-row_dict = {'Id': 81, 'Name': 'Sachin', 'Course':'Maths', 'City':'Mumbai', 'Session':'Evening'}
+    @staticmethod
+    def remove_from_csv(file_name, row_id):
+        try:
+            lines = list()
+            with open(file_name, 'r') as readFile:
+                reader = csv.reader(readFile)
+                for row in reader:
+                    if row[0] != str(row_id):
+                        lines.append(row)
+            with open(file_name, 'w') as writeFile:
+                writer = csv.writer(writeFile)
+                writer.writerows(lines)
+        except Exception as e:
+            print(e)
+            Logger.add_to_log(e)
 
+
+    @staticmethod
+    def update_csv(file_name, row_id, upd_row):
+        try:
+            lines = list()
+            with open(file_name, 'r') as readFile:
+                reader = csv.reader(readFile)
+                for row in reader:
+                    if row[0] != str(row_id):
+                        lines.append(row)
+                    elif row[0] == str(row_id):
+                        lines.append(upd_row.values())
+            with open(file_name, 'w') as writeFile:
+                writer = csv.writer(writeFile)
+                writer.writerows(lines)
+        except Exception as e:
+            print(e)
+            Logger.add_to_log(e)
+
+
+
+# uncomment to check load_from_csv
 # FileHandler.load_from_csv('users.csv')
-FileHandler.append_to_csv('users.csv', new_row)
+
+# uncomment to check append_to_csv
+# new_row = {'user_id': 8, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'producer', 'salary': 50000, 'role': 'five'}
+# row_dict = {'Id': 81, 'Name': 'Sachin', 'Course':'Maths', 'City':'Mumbai', 'Session':'Evening'}
+# FileHandler.append_to_csv('users.csv', new_row)
 # FileHandler.append_to_csv('users.csv', row_dict)
+
+# uncomment to check remove_from_csv
+# FileHandler.remove_from_csv('users.csv', 8)
+
+# uncomment to check uodate_csv
+# updated_row = {'user_id': 8, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'developer', 'salary': 50000, 'role': 'five'}
+# FileHandler.update_csv('users.csv', 7, updated_row)

@@ -1,6 +1,7 @@
 
 import csv
 from logger import Logger
+log = Logger
 
 
 class User:
@@ -20,7 +21,7 @@ class User:
                 print('wrong name or password')
         except Exception as e:
             print(e)
-            Logger.add_to_log(e)
+            log.add_to_log(e)
 
 
 User.user_auth("Donald", "pass4")

@@ -1,13 +1,16 @@
 import definitions
+from filehandler import FileHandler
 import csv
+import os
 from logger import Logger
+from csv import DictWriter
 log = Logger
 
 
 class User:
     def __init__(self):
-        self.csv_path = definitions.DEFAULT_CSV_FILE_BASE_DIR + os.sep + "users.csv"
-        user_file_handler = FileHandler(self.csv_path)
+        self.csv_path = definitions.USER_CSV_FILE_BASE_DIR + os.sep + "users.csv"
+        vehicle_file_handler = FileHandler(self.csv_path)
         self.__users = vehicle_file_handler.get_data()
 
     @staticmethod
@@ -27,29 +30,55 @@ class User:
             print(e)
             log.add_to_log(e)
 
-    def update_csv(self, row_id, **kwargs):
+    def add_user(self, row_id, **kwargs):
         try:
-            previous_lines = self.__users
-            lines = list()
-            id_column_index = definitions.file_data.get("vehicle").get("columns").index("id")
-            for row in self.__users:
-                if row[id_column_index] != str(row_id):
-                    lines.append(row)
-                elif row[id_column_index] == str(row_id):
-                    lines.append(kwargs.values())
-            with open(self.csv_path, 'w') as writeFile:
-                writer = csv.writer(writeFile)
-                writer.writerows(lines)
-            if lines != previous_lines:
-                return True
-            else:
-                return False
+            id_column_index = definitions.file_data.get("user").get("columns").index("user_id")
+            print(id_column_index)
+            data_field_names = [kwargs.keys()]
+            fields_list = [i for i in kwargs.keys()]
+            print(fields_list)
+            print(row_id)
+            data = [kwargs.values()]
+            # get the csv field names
+            with open(self.csv_path, 'r') as f:
+                d_reader = csv.DictReader(f)
+                field_names = d_reader.fieldnames
+                # compare
+                if fields_list == field_names:
+                    for row in d_reader:
+                        print(row_id)
+                        # print(int(row[id_column_index]))
+                        print('hi')
+                        if int(row[id_column_index]) == row_id:
+                            print('this user_id already exists')
+                            Logger.add_to_log('this user_id already exists')
+                            return False
+                        else:
+                            print('hi')
+                    print('hi')
+                    with open(self.csv_path, 'a+', newline='') as write_obj:
+                        dict_writer = DictWriter(write_obj, fieldnames=field_names)
+                        dict_writer.writerow(data)
+                        print('hi')
+                        return True
+                else:
+                    print("data field names don't match")
+                    return False
         except Exception as e:
             print(e)
             Logger.add_to_log(e)
 
-User.user_auth("Donald", "pass4")
-User.user_auth(56, "pass4")
+
+user = User()
+
+new_row = {'user_id': 9, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'producer', 'salary': 50000, 'role': 'five'}
+row_dict = {'Id': 81, 'Name': 'Sachin', 'Course':'Maths', 'City':'Mumbai', 'Session':'Evening'}
+user.add_user(9, **new_row)
+# user.add_user(4, **row_dict)
+
+
+# User.user_auth("Donald", "pass4")
+# User.user_auth(56, "pass4")
 
 # import definitions
 # from file_handler import FileHandler

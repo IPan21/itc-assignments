@@ -105,3 +105,30 @@
 04/21/2020 09:14:03 PM '_id' is an invalid keyword argument for print()
 04/21/2020 09:38:31 PM local variable 'reader' referenced before assignment
 04/21/2020 09:43:54 PM name 'csv_path' is not defined
+04/21/2020 11:17:46 PM [Errno 2] No such file or directory: '/Users/ipan/Desktop/Assignments/JS/python/itc-assignments/Pan04/car-fleet/users.csv'
+04/21/2020 11:18:10 PM [Errno 2] No such file or directory: '/Users/ipan/Desktop/Assignments/JS/python/itc-assignments/Pan04/car-fleet/users.csv'
+04/21/2020 11:18:20 PM [Errno 2] No such file or directory: '/Users/ipan/Desktop/Assignments/JS/python/itc-assignments/Pan04/car-fleet/users.csv'
+04/21/2020 11:18:20 PM tuple.index(x): x not in tuple
+04/21/2020 11:18:20 PM tuple.index(x): x not in tuple
+04/21/2020 11:19:38 PM tuple.index(x): x not in tuple
+04/21/2020 11:19:38 PM tuple.index(x): x not in tuple
+04/21/2020 11:21:46 PM tuple.index(x): x not in tuple
+04/21/2020 11:21:46 PM tuple.index(x): x not in tuple
+04/21/2020 11:21:52 PM tuple.index(x): x not in tuple
+04/21/2020 11:21:52 PM tuple.index(x): x not in tuple
+04/21/2020 11:22:23 PM tuple.index(x): x not in tuple
+04/21/2020 11:22:45 PM tuple.index(x): x not in tuple
+04/21/2020 11:22:57 PM tuple.index(x): x not in tuple
+04/21/2020 11:23:20 PM tuple.index(x): x not in tuple
+04/21/2020 11:23:53 PM tuple.index(x): x not in tuple
+04/21/2020 11:30:45 PM 0
+04/21/2020 11:31:38 PM 0
+04/21/2020 11:32:12 PM 0
+04/21/2020 11:32:51 PM 0
+04/21/2020 11:33:50 PM 0
+04/21/2020 11:34:20 PM 0
+04/21/2020 11:34:28 PM 0
+04/21/2020 11:34:34 PM 0
+04/21/2020 11:36:02 PM 0
+04/21/2020 11:36:18 PM 0
+04/21/2020 11:36:58 PM 0

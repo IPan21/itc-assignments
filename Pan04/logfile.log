@@ -63,3 +63,45 @@
 04/20/2020 08:34:38 PM unsupported operand type(s) for +: 'int' and 'str'
 04/20/2020 08:35:35 PM wrong csv format
 04/20/2020 08:39:55 PM wrong csv format
+04/21/2020 03:35:33 PM [Errno 2] No such file or directory: 'car-fleet/car_fleet.csv.csv'
+04/21/2020 03:35:42 PM [Errno 2] No such file or directory: '/car-fleet/car_fleet.csv.csv'
+04/21/2020 03:51:28 PM 1
+04/21/2020 03:51:28 PM 1
+04/21/2020 03:52:02 PM 1
+04/21/2020 03:52:02 PM 1
+04/21/2020 03:53:22 PM tuple.index(x): x not in tuple
+04/21/2020 03:53:22 PM tuple.index(x): x not in tuple
+04/21/2020 03:54:34 PM tuple.index(x): x not in tuple
+04/21/2020 03:54:34 PM tuple.index(x): x not in tuple
+04/21/2020 03:54:35 PM tuple.index(x): x not in tuple
+04/21/2020 03:54:35 PM tuple.index(x): x not in tuple
+04/21/2020 03:54:39 PM tuple.index(x): x not in tuple
+04/21/2020 03:54:39 PM tuple.index(x): x not in tuple
+04/21/2020 03:54:48 PM tuple.index(x): x not in tuple
+04/21/2020 03:54:48 PM tuple.index(x): x not in tuple
+04/21/2020 04:05:10 PM wrong csv format
+04/21/2020 04:22:35 PM [Errno 2] No such file or directory: '/Users/ipan/Desktop/Assignments/JS/python/itc-assignments/Pan04/car_fleet/car_fleet.csv'
+04/21/2020 04:23:16 PM [Errno 2] No such file or directory: '/Users/ipan/Desktop/Assignments/JS/python/itc-assignments/car_fleet/car_fleet.csv'
+04/21/2020 04:51:40 PM 'builtin_function_or_method' object is not iterable
+04/21/2020 04:51:53 PM 'builtin_function_or_method' object is not iterable
+04/21/2020 04:52:05 PM 'builtin_function_or_method' object is not iterable
+04/21/2020 04:53:59 PM 'builtin_function_or_method' object is not iterable
+04/21/2020 04:54:16 PM 'builtin_function_or_method' object is not iterable
+04/21/2020 05:05:10 PM 'builtin_function_or_method' object has no attribute 'fieldnames'
+04/21/2020 05:05:36 PM local variable 'field_names' referenced before assignment
+04/21/2020 05:05:55 PM 'builtin_function_or_method' object has no attribute 'fieldnames'
+04/21/2020 05:07:50 PM 0
+04/21/2020 05:08:50 PM 0
+04/21/2020 05:34:00 PM 0
+04/21/2020 05:35:07 PM 0
+04/21/2020 05:35:23 PM 1
+04/21/2020 05:39:22 PM 'column_1'
+04/21/2020 05:45:08 PM 'list' object has no attribute 'user_id'
+04/21/2020 05:52:17 PM name 'definitions' is not defined
+04/21/2020 08:33:54 PM [Errno 2] No such file or directory: 'user.csv'
+04/21/2020 08:34:36 PM [Errno 2] No such file or directory: 'user.csv'
+04/21/2020 08:36:26 PM [Errno 2] No such file or directory: 'user.csv'
+04/21/2020 09:13:37 PM 'id' is an invalid keyword argument for print()
+04/21/2020 09:14:03 PM '_id' is an invalid keyword argument for print()
+04/21/2020 09:38:31 PM local variable 'reader' referenced before assignment
+04/21/2020 09:43:54 PM name 'csv_path' is not defined

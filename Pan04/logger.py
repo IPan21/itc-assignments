@@ -10,3 +10,5 @@ class Logger:
             logging.debug(msg)
         except Exception as e:
             print(e)
+
+

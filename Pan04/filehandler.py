@@ -1,24 +1,43 @@
-
+import pathlib
+import os
 import logging
 import csv
 from csv import reader
+import operator
 from csv import writer
+import definitions
 from csv import DictWriter
 from logger import Logger
+log = Logger
 
 
 class FileHandler:
+    __csv_data = None
+    row_count = 0
 
-    @staticmethod
-    def load_from_csv(file_name):
+    def __init__(self, csv_file_name):
+        if self.__csv_data is None:
+            self.__csv_data = []
+        self.log = Logger()
+        self.load_from_csv(csv_file_name)
+
+    def get_data(self):
+        return self.__csv_data
+
+    def load_from_csv(self, file_name):
         try:
             with open(file_name, 'r') as read_obj:
+                csv_list = []
                 csv_read = reader(read_obj)
                 for row in csv_read:
-                    print(row)
+                    # print(row)
+                    csv_list.append(row)
+                    self.__csv_data.append(row)
+                # print(csv_list)
+                return csv_list
         except Exception as e:
             print(e)
-            Logger.add_to_log(e)
+            log.add_to_log(e)
 
 
     @staticmethod
@@ -73,6 +92,7 @@ class FileHandler:
     def update_csv(file_name, row_id, upd_row):
         try:
             lines = list()
+            # field_names = reader.fieldnames
             with open(file_name, 'r') as readFile:
                 reader = csv.reader(readFile)
                 for row in reader:
@@ -87,10 +107,32 @@ class FileHandler:
             print(e)
             Logger.add_to_log(e)
 
-
+    @staticmethod
+    def sort_by_key(file_name, this_key, direction):
+        try:
+            lines = list()
+            name_columns_pos = definitions.file_data.get("user").get("columns").index(this_key)
+            with open(file_name, 'r') as readFile:
+                readers = csv.reader(readFile)
+                sort = sorted(readers, key=operator.itemgetter(name_columns_pos), reverse=direction)
+                for row in sort:
+                    if row[name_columns_pos] == this_key:
+                        lines.append(row)
+                for row in sort:
+                    if row[name_columns_pos] != this_key:
+                        lines.append(row)
+            with open(file_name, 'w') as writeFile:
+                writers = csv.writer(writeFile)
+                writers.writerows(lines)
+        except Exception as e:
+            print(e)
+            Logger.add_to_log(e)
 
 # uncomment to check load_from_csv
-# FileHandler.load_from_csv('users.csv')
+# FileHandler.sort_by_key('users.csv', 'user_id', False)
+
+# uncomment to check load_from_csv
+# FileHandler.load_from_csv(str(pathlib.Path(__file__).parent) + os.sep + "car-fleet" + os.sep + 'car_fleet.csv')
 
 # uncomment to check append_to_csv
 # new_row = {'user_id': 8, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'producer', 'salary': 50000, 'role': 'five'}
@@ -102,5 +144,5 @@ class FileHandler:
 # FileHandler.remove_from_csv('users.csv', 8)
 
 # uncomment to check uodate_csv
-# updated_row = {'user_id': 8, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'developer', 'salary': 50000, 'role': 'five'}
+# updated_row = {'user_id': 7, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'developer', 'salary': 100000, 'role': 'five'}
 # FileHandler.update_csv('users.csv', 7, updated_row)

@@ -23,5 +23,3 @@ DEFAULT_CSV_FILE_BASE_DIR = str(pathlib.Path(__file__).parent) + os.sep + "car-f
 USER_CSV_FILE_BASE_DIR = str(pathlib.Path(__file__).parent)
 TIME_MSG_FORMAT = "%m-%d-%Y, %H:%M:%S"
 TIME_FILE_FORMAT = "%H_%M_%S"
-
-# print(DEFAULT_LOG_FILE_BASE_DIR)

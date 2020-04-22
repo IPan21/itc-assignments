@@ -132,3 +132,77 @@
 04/21/2020 11:36:02 PM 0
 04/21/2020 11:36:18 PM 0
 04/21/2020 11:36:58 PM 0
+04/22/2020 12:30:00 AM 0
+04/22/2020 12:31:29 AM 0
+04/22/2020 12:31:44 AM 0
+04/22/2020 12:32:17 AM 0
+04/22/2020 12:32:46 AM 0
+04/22/2020 12:35:34 AM 'list' object has no attribute 'keys'
+04/22/2020 12:36:41 AM 'list' object has no attribute 'keys'
+04/22/2020 12:38:48 AM 'list' object has no attribute 'keys'
+04/22/2020 12:40:51 AM iterable expected, not int
+04/22/2020 12:41:52 AM this user_id already exists
+04/22/2020 12:44:13 AM this user_id already exists
+04/22/2020 01:06:04 PM string index out of range
+04/22/2020 01:06:36 PM string index out of range
+04/22/2020 01:06:53 PM string index out of range
+04/22/2020 01:07:26 PM string index out of range
+04/22/2020 01:08:54 PM name 'yes' is not defined
+04/22/2020 02:29:28 PM name 'datetime' is not defined
+04/22/2020 02:37:25 PM 'module' object is not callable
+04/22/2020 02:37:42 PM 'module' object is not callable
+04/22/2020 02:38:39 PM 'module' object is not callable
+04/22/2020 02:38:49 PM 'module' object is not callable
+04/22/2020 02:38:57 PM 'module' object is not callable
+04/22/2020 02:39:11 PM 'module' object is not callable
+04/22/2020 05:05:43 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 05:06:02 PM module 'datetime' has no attribute 'strftime'
+04/22/2020 05:06:45 PM module 'datetime' has no attribute 'strftime'
+04/22/2020 05:07:33 PM descriptor 'strftime' for 'datetime.date' objects doesn't apply to a 'str' object
+04/22/2020 05:07:57 PM type object 'datetime.datetime' has no attribute 'datetime'
+04/22/2020 05:12:54 PM type object 'datetime.datetime' has no attribute 'datetime'
+04/22/2020 05:16:01 PM type object 'datetime.datetime' has no attribute 'datetime'
+04/22/2020 05:16:10 PM type object 'datetime.datetime' has no attribute 'datetime'
+04/22/2020 05:16:27 PM type object 'datetime.datetime' has no attribute 'datetime'
+04/22/2020 05:18:31 PM 'method_descriptor' object has no attribute 'today'
+04/22/2020 05:19:05 PM 'method_descriptor' object has no attribute 'today'
+04/22/2020 05:19:15 PM 'method_descriptor' object has no attribute 'today'
+04/22/2020 05:50:16 PM 'method_descriptor' object has no attribute 'today'
+04/22/2020 05:53:34 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 05:53:55 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 05:53:59 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 05:54:11 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 05:54:38 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 05:54:42 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 05:58:06 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 05:59:24 PM 'method_descriptor' object has no attribute 'today'
+04/22/2020 05:59:36 PM 'method_descriptor' object has no attribute 'today'
+04/22/2020 05:59:49 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 05:59:55 PM 'method_descriptor' object has no attribute 'today'
+04/22/2020 06:00:03 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 06:00:11 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 06:00:23 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 06:00:35 PM 'method_descriptor' object has no attribute 'today'
+04/22/2020 06:00:48 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 06:01:21 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 06:01:34 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 06:02:02 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 06:02:17 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 06:02:26 PM 'method_descriptor' object has no attribute 'today'
+04/22/2020 06:02:33 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 06:03:12 PM 'method_descriptor' object has no attribute 'today'
+04/22/2020 06:04:15 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 06:04:25 PM 'method_descriptor' object has no attribute 'today'
+04/22/2020 06:04:32 PM module 'datetime' has no attribute 'strptime'
+04/22/2020 06:06:18 PM time data 'April/1/2012' does not match format '%B %d/%Y'
+04/22/2020 06:07:12 PM time data 'April/1/2012' does not match format '%B%d/%Y'
+04/22/2020 06:08:09 PM time data '04/1/2012' does not match format '%m,%d/%Y'
+04/22/2020 06:11:24 PM an integer is required (got type str)
+04/22/2020 06:12:02 PM invalid literal for int() with base 10: '2021, 4, 1'
+04/22/2020 06:26:41 PM invalid literal for int() with base 10: '%Y'
+04/22/2020 06:28:12 PM an integer is required (got type str)
+04/22/2020 06:29:16 PM an integer is required (got type str)
+04/22/2020 06:29:32 PM an integer is required (got type list)
+04/22/2020 06:52:34 PM unsupported operand type(s) for +: 'int' and 'str'
+04/22/2020 06:59:30 PM local variable 'diff' referenced before assignment
+04/22/2020 10:19:13 PM name 'owners_list' is not defined

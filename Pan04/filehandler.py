@@ -54,9 +54,9 @@ class FileHandler:
             # compare
                 if data_field_names == field_names:
                     for row in d_reader:
-                        if int(row['user_id']) == data['user_id']:
-                            print('this user_id already exists')
-                            Logger.add_to_log('this user_id already exists')
+                        if int(row['id']) == data['id']:
+                            print('this id already exists')
+                            Logger.add_to_log('this id already exists')
                             return False
 
                     with open(file_name, 'a+', newline='') as write_obj:
@@ -81,8 +81,8 @@ class FileHandler:
                     if row[0] != str(row_id):
                         lines.append(row)
             with open(file_name, 'w') as writeFile:
-                writer = csv.writer(writeFile)
-                writer.writerows(lines)
+                writers = csv.writer(writeFile)
+                writers.writerows(lines)
         except Exception as e:
             print(e)
             Logger.add_to_log(e)
@@ -128,14 +128,14 @@ class FileHandler:
             print(e)
             Logger.add_to_log(e)
 
-# uncomment to check load_from_csv
-# FileHandler.sort_by_key('users.csv', 'user_id', False)
+# uncomment to check sort_by_key
+# FileHandler.sort_by_key('users.csv', 'id', False)
 
 # uncomment to check load_from_csv
 # FileHandler.load_from_csv(str(pathlib.Path(__file__).parent) + os.sep + "car-fleet" + os.sep + 'car_fleet.csv')
 
 # uncomment to check append_to_csv
-# new_row = {'user_id': 8, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'producer', 'salary': 50000, 'role': 'five'}
+# new_row = {'id': 8, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'producer', 'salary': 50000, 'role': 'five'}
 # row_dict = {'Id': 81, 'Name': 'Sachin', 'Course':'Maths', 'City':'Mumbai', 'Session':'Evening'}
 # FileHandler.append_to_csv('users.csv', new_row)
 # FileHandler.append_to_csv('users.csv', row_dict)
@@ -144,5 +144,5 @@ class FileHandler:
 # FileHandler.remove_from_csv('users.csv', 8)
 
 # uncomment to check uodate_csv
-# updated_row = {'user_id': 7, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'developer', 'salary': 100000, 'role': 'five'}
+# updated_row = {'id': 7, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'developer', 'salary': 100000, 'role': 'five'}
 # FileHandler.update_csv('users.csv', 7, updated_row)

@@ -40,7 +40,7 @@ class Vehicle:
 
 ###uncomment to check update_csv
 # vehicle = Vehicle()
-# row_dict = {'id': 4, 'make': 'Skoda', 'model':'Yeti', 'fuel':'gasoline'}
+# row_dict = {'id': 4, 'make': 'Skoda', 'model':'Yeti', 'fuel':'gasoline', 'last_test':'04/1/2020'}
 # vehicle.update_csv(4, **row_dict)
 
 

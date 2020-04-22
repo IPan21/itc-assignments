@@ -32,13 +32,10 @@ class User:
 
     def add_user(self, row_id, **kwargs):
         try:
-            id_column_index = definitions.file_data.get("user").get("columns").index("user_id")
-            print(id_column_index)
+            id_column_index = definitions.file_data.get("user").get("columns").index("id")
             data_field_names = [kwargs.keys()]
             fields_list = [i for i in kwargs.keys()]
-            print(fields_list)
-            print(row_id)
-            data = [kwargs.values()]
+            values_list = [i for i in kwargs.values()]
             # get the csv field names
             with open(self.csv_path, 'r') as f:
                 d_reader = csv.DictReader(f)
@@ -46,20 +43,13 @@ class User:
                 # compare
                 if fields_list == field_names:
                     for row in d_reader:
-                        print(row_id)
-                        # print(int(row[id_column_index]))
-                        print('hi')
-                        if int(row[id_column_index]) == row_id:
-                            print('this user_id already exists')
-                            Logger.add_to_log('this user_id already exists')
+                        if int(row['id']) == row_id or int(row['id']) == values_list[id_column_index]:
+                            print('this id already exists')
+                            Logger.add_to_log('this id already exists')
                             return False
-                        else:
-                            print('hi')
-                    print('hi')
-                    with open(self.csv_path, 'a+', newline='') as write_obj:
-                        dict_writer = DictWriter(write_obj, fieldnames=field_names)
-                        dict_writer.writerow(data)
-                        print('hi')
+                    with open(self.csv_path, 'a+') as writeFile:
+                        writer = csv.writer(writeFile)
+                        writer.writerow(values_list)
                         return True
                 else:
                     print("data field names don't match")
@@ -71,10 +61,10 @@ class User:
 
 user = User()
 
-new_row = {'user_id': 9, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'producer', 'salary': 50000, 'role': 'five'}
+new_row = {'id': 9, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'producer', 'salary': 50000, 'role': 'five'}
 row_dict = {'Id': 81, 'Name': 'Sachin', 'Course':'Maths', 'City':'Mumbai', 'Session':'Evening'}
-user.add_user(9, **new_row)
-# user.add_user(4, **row_dict)
+user.add_user(10, **new_row)
+user.add_user(4, **row_dict)
 
 
 # User.user_auth("Donald", "pass4")

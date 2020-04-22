@@ -1,6 +1,7 @@
-id,make,model,fuel
-5,Opel,Corsa,gasoline
-1,BMV,X6,diesel
-2,Kia,Ceed,gasoline
-3,Mercedes,S,gasoline
-4,Skoda,Yeti,gasoline
+id,make,model,fuel,last_test,first_name,last_name
+1,BMV,X6,diesel,04/1/2020,Meredith,Grey
+2,Kia,Ceed,gasoline,01/4/2020,Eliza,Doolittle
+3,Mercedes,S,gasoline,02/6/2020,Jack,London
+4,Skoda,Yeti,gasoline,03/14/2020,Jack,London
+5,Opel,Corsa,gasoline,12/1/2019,Eliza,Doolittle
+6,Skoda,Octavia,gasoline,9/9/2019,Ernest,Hemingway

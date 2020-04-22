@@ -4,7 +4,7 @@ import os
 file_data = {
     "user": {
         "file_name": "users.csv",
-        "columns": ("user_id", "first", "last", "password", "position", "salary", "role")
+        "columns": ("id", "first", "last", "password", "position", "salary", "role")
     },
     "car_lot": {
         "file_name": "car_lot.csv",
@@ -12,7 +12,7 @@ file_data = {
     },
     "vehicle": {
         "file_name": "car_fleet.csv",
-        "columns": ("id", "make", "model", "fuel")
+        "columns": ("id", "make", "model", "fuel", "last_test", 'first_name', 'last_name')
     }
 }
 

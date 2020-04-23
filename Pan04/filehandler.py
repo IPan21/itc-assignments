@@ -137,10 +137,10 @@ class FileHandler:
 
             user_csv = pd.read_csv(self.user_csv)
             other_csv = pd.read_csv(left_file)
-            left_merge = pd.merge(left=other_csv, right=user_csv, left_on=left_key, right_on=right_key, how=join_type)
-            # print(left_merge.head())
-            print(left_merge)
-            return left_merge
+            merge = pd.merge(left=other_csv, right=user_csv, left_on=left_key, right_on=right_key, how=join_type)
+            merge.head()
+            print(merge)
+            return merge
         except Exception as e:
             print(e)
             log.add_to_log(e)
@@ -149,8 +149,8 @@ class FileHandler:
 test_fh = FileHandler(definitions.USER_CSV_FILE_BASE_DIR + os.sep + "users.csv")
 
 # uncomment to check data_join
-# car_csv = definitions.DEFAULT_CSV_FILE_BASE_DIR + os.sep + 'car_fleet.csv'
-# test_fh.data_join(type="outer", right_key="first", left_key="first_name", left_file=car_csv)
+car_csv = definitions.DEFAULT_CSV_FILE_BASE_DIR + os.sep + 'car_fleet.csv'
+test_fh.data_join(type="outer", right_key="first", left_key="first_name", left_file=car_csv)
 
 # uncomment to check sort_by_key
 # FileHandler.sort_by_key('users.csv', 'id', False)

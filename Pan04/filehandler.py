@@ -1,10 +1,6 @@
-import pathlib
-import os
-import logging
 import csv
 from csv import reader
 import operator
-from csv import writer
 import definitions
 from csv import DictWriter
 from logger import Logger
@@ -68,7 +64,7 @@ class FileHandler:
                     return False
         except Exception as e:
             print(e)
-            Logger.add_to_log(e)
+            log.add_to_log(e)
 
 
     @staticmethod

@@ -5,66 +5,62 @@ from filehandler import FileHandler
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import datetime
-import dateutil.relativedelta
-from csv import reader
-import pandas as pd
-from csv import writer
-from csv import DictWriter
 from logger import Logger
-import fileinput
+from user import User
 
-
-log = Logger
-# car_csv_dir = DEFAULT_CSV_FILE_BASE_DIR
-# print(car_csv_dir)
+log = Logger()
 
 
 class CarLot:
 
     def __init__(self):
         self.car_csv = definitions.DEFAULT_CSV_FILE_BASE_DIR + os.sep + 'car_fleet.csv'
+        self.user = User()
         vehicle_file_handler = FileHandler(definitions.DEFAULT_CSV_FILE_BASE_DIR + os.sep + "car_fleet.csv")
         self.__vehicles = vehicle_file_handler.get_data()
         self.csv_path = definitions.USER_CSV_FILE_BASE_DIR + os.sep + "users.csv"
         vehicle_file_handler = FileHandler(self.csv_path)
         self.__users = vehicle_file_handler.get_data()
 
-    @staticmethod
-    def update_salary_by_name(file_name, employee_salary, name):
+    def update_salary_by_name(self, employee_salary, name):
         try:
+            password_column_index = definitions.file_data.get("user").get("columns").index("password")
+            name_column_index = definitions.file_data.get("user").get("columns").index("first")
+            salary_column_index = definitions.file_data.get("user").get("columns").index("salary")
             lines = list()
-            with open(file_name, 'r') as readFile:
-                readers = csv.reader(readFile)
-                for row in readers:
-                    if row[1] != name:
+            for row in self.__users:
+                if row[name_column_index] != name:
+                    lines.append(row)
+                elif row[name_column_index] == name:
+                    if self.user.user_auth(row[name_column_index], row[password_column_index]) == 'admin':
+                        row[salary_column_index] = employee_salary
                         lines.append(row)
-                    elif row[1] == name:
-                        row[5] = employee_salary
-                        lines.append(row)
-            with open(file_name, 'w') as writeFile:
+                    else:
+                        print("can't update salary. the user should have admin status.")
+                        return False
+            with open(self.csv_path, 'w') as writeFile:
                 writers = csv.writer(writeFile)
                 writers.writerows(lines)
         except Exception as e:
             print(e)
             log.add_to_log(e)
 
-    @staticmethod
-    def add_to_fleet(external_csv_fleet_file, internal_csv):
+    def add_to_fleet(self, external_csv_fleet_file):
         try:
             with open(external_csv_fleet_file, "r") as f:
                 readers = csv.reader(f)
-                ex_headers = next(reader)
-            with open(internal_csv, "r") as f:
-                reader = csv.reader(f)
-                headers = next(reader)
+                ex_headers = next(readers)
+            with open(self.car_csv, "r") as f:
+                readers = csv.reader(f)
+                headers = next(readers)
             if headers != ex_headers:
                 print('wrong csv format')
                 log.add_to_log('wrong csv format')
                 return False
 
             f1 = open(external_csv_fleet_file, 'r').readlines()
-            f2 = open(internal_csv, 'r').readlines()
-            f = open(internal_csv, 'a')
+            f2 = open(self.car_csv, 'r').readlines()
+            f = open(self.car_csv, 'a')
             for _ in range(2):
                 for row in f1:
                     if row not in f2:
@@ -75,28 +71,22 @@ class CarLot:
             print(e)
             log.add_to_log(e)
 
-    @staticmethod
-    def get_fleet_size(file_name):
+    def get_fleet_size(self):
         try:
-            file = open(file_name)
-            reader = csv.reader(file)
-            lines = len(list(reader))
+            lines = len(list(self.__vehicles))
             print(str(lines - 1) + ' cars')
         except Exception as e:
             print(e)
             log.add_to_log(e)
 
-    @staticmethod
-    def get_all_cars_by_brand(file_name, brand):
+    def get_all_cars_by_brand(self, brand):
         try:
             make_column_index = definitions.file_data.get("vehicle").get("columns").index("make")
             lines = list()
-            with open(file_name, 'r') as readFile:
-                readers = csv.reader(readFile)
-                for row in readers:
-                    if row[make_column_index] == brand:
-                        lines.append(row)
-                print(len(lines))
+            for row in self.__vehicles:
+                if row[make_column_index] == brand:
+                    lines.append(row)
+            print(len(lines))
         except Exception as e:
             print(e)
             log.add_to_log(e)
@@ -220,38 +210,13 @@ class CarLot:
             log.add_to_log(e)
 
 
-#CarLot.get_all_employee_who_ own_car_brand(brand)
-#Details: This function searches for matches between car owners and employees who own a car with vehicle of brand = <brand>
-#Return val: list of employees who own cars of type brand in the lot false if non do.
-#Error handling: Throws (bubbels) Errors if exist
-
 cars_lot = CarLot()
-cars_lot.get_all_employee_who_own_car_brand("Skoda")
-# cars_lot.does_employee_have_car()
-# cars_lot.get_time_to_test(10)
-
-# cars_lot.how_many_own_more_then_one_car()
-
-# key_arguments = {"make":"Skoda", "mode":"Yeti"}
+# cars_lot.update_salary_by_name('90000', 'Meredith')
+# cars_lot.add_to_fleet('car-fleet/external_car_fleet.csv')
+# cars_lot.get_fleet_size()
+# cars_lot.get_all_cars_by_brand("Skoda")
 # cars_lot.get_all_cars_by_filter(and_or="OR", make="Skoda", model="Yeti")
-
-# uncomment to check get_all_cars_by_brand
-# car_csv = definitions.DEFAULT_CSV_FILE_BASE_DIR + os.sep + 'car_fleet.csv'
-# CarLot.get_all_cars_by_brand(car_csv, "Opel")
-
-# uncomment to check update_salary_by_name
-# name_to_update = 'Irina'
-# CarLot.update_salary_by_name('users.csv', '80000', name_to_update)
-
-# uncomment to check update_salary_by_name
-# external = 'car-fleet/external_car_fleet.csv'
-# internal = 'car-fleet/car_fleet.csv'
-# CarLot.add_to_fleet(external, internal)
-
-# uncomment to check get_fleet_size
-# internal = 'car-fleet/car_fleet.csv'
-# CarLot.get_fleet_size(internal)
-
-
-
-
+# cars_lot.get_time_to_test(10)
+# cars_lot.how_many_own_more_then_one_car()
+# cars_lot.does_employee_have_car()
+# cars_lot.get_all_employee_who_own_car_brand("Skoda")

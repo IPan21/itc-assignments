@@ -13,19 +13,21 @@ class User:
         vehicle_file_handler = FileHandler(self.csv_path)
         self.__users = vehicle_file_handler.get_data()
 
-    @staticmethod
-    def user_auth(name, password):
+    def user_auth(self, name, password):
         try:
-            with open("users.csv", "r") as f:
-                readers = csv.DictReader(f, delimiter=",")
-                for row in readers:
-                    if name == row['first'] and password == row['password']:
-                        print("name and password are correct")
-                        if row['role']:
-                            return row['role']
-                        else:
-                            return False
-                print('wrong name or password')
+            name_column_index = definitions.file_data.get("user").get("columns").index("first")
+            password_column_index = definitions.file_data.get("user").get("columns").index("password")
+            role_column_index = definitions.file_data.get("user").get("columns").index("role")
+            for row in self.__users:
+                if name == row[name_column_index] and password == row[password_column_index]:
+                    print("name and password are correct")
+                    # print(row)
+                    if row[role_column_index]:
+                        print(row[role_column_index])
+                        return row[role_column_index]
+                    else:
+                        return False
+            print('wrong name or password')
         except Exception as e:
             print(e)
             log.add_to_log(e)
@@ -61,11 +63,11 @@ class User:
 
 user = User()
 
-new_row = {'id': 9, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'producer', 'salary': 50000, 'role': 'five'}
-row_dict = {'Id': 81, 'Name': 'Sachin', 'Course':'Maths', 'City':'Mumbai', 'Session':'Evening'}
-user.add_user(10, **new_row)
-user.add_user(4, **row_dict)
-
+# new_row = {'id': 9, 'first': 'Irina', 'last': 'Pan', 'password': 'pass5', 'position': 'producer', 'salary': 50000, 'role': 'five'}
+# row_dict = {'Id': 81, 'Name': 'Sachin', 'Course':'Maths', 'City':'Mumbai', 'Session':'Evening'}
+# user.add_user(10, **new_row)
+# user.add_user(4, **row_dict)
+# user.user_auth("Donald", "pass4")
 
 # User.user_auth("Donald", "pass4")
 # User.user_auth(56, "pass4")

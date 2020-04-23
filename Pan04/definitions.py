@@ -6,10 +6,6 @@ file_data = {
         "file_name": "users.csv",
         "columns": ("id", "first", "last", "password", "position", "salary", "role")
     },
-    "car_lot": {
-        "file_name": "car_lot.csv",
-        "columns": ("id", "employees", "vehicles")
-    },
     "vehicle": {
         "file_name": "car_fleet.csv",
         "columns": ("id", "make", "model", "fuel", "last_test", 'first_name', 'last_name')
@@ -18,7 +14,7 @@ file_data = {
 
 
 # logger definitions
-DEFAULT_LOG_FILE_BASE_DIR = str(pathlib.Path(__file__).parent) + os.sep + "log"
+DEFAULT_LOG_FILE_BASE_DIR = str(pathlib.Path(__file__).parent) + os.sep + "log-files"
 DEFAULT_CSV_FILE_BASE_DIR = str(pathlib.Path(__file__).parent) + os.sep + "car-fleet"
 USER_CSV_FILE_BASE_DIR = str(pathlib.Path(__file__).parent)
 TIME_MSG_FORMAT = "%m-%d-%Y, %H:%M:%S"

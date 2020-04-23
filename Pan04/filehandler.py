@@ -3,6 +3,8 @@ from csv import reader
 import operator
 import definitions
 from csv import DictWriter
+import pandas as pd
+import os
 from logger import Logger
 log = Logger
 
@@ -16,6 +18,8 @@ class FileHandler:
             self.__csv_data = []
         self.log = Logger()
         self.load_from_csv(csv_file_name)
+        # self.car_csv = definitions.DEFAULT_CSV_FILE_BASE_DIR + os.sep + 'car_fleet.csv'
+        self.user_csv = definitions.USER_CSV_FILE_BASE_DIR + os.sep + "users.csv"
 
     def get_data(self):
         return self.__csv_data
@@ -123,6 +127,30 @@ class FileHandler:
         except Exception as e:
             print(e)
             Logger.add_to_log(e)
+
+    def data_join(self, **kwargs):
+        try:
+            join_type = kwargs.pop('type')
+            right_key = kwargs.pop('right_key')
+            left_key = kwargs.pop('left_key')
+            left_file = kwargs.pop('left_file')
+
+            user_csv = pd.read_csv(self.user_csv)
+            other_csv = pd.read_csv(left_file)
+            left_merge = pd.merge(left=other_csv, right=user_csv, left_on=left_key, right_on=right_key, how=join_type)
+            # print(left_merge.head())
+            print(left_merge)
+            return left_merge
+        except Exception as e:
+            print(e)
+            log.add_to_log(e)
+
+
+test_fh = FileHandler(definitions.USER_CSV_FILE_BASE_DIR + os.sep + "users.csv")
+
+# uncomment to check data_join
+# car_csv = definitions.DEFAULT_CSV_FILE_BASE_DIR + os.sep + 'car_fleet.csv'
+# test_fh.data_join(type="outer", right_key="first", left_key="first_name", left_file=car_csv)
 
 # uncomment to check sort_by_key
 # FileHandler.sort_by_key('users.csv', 'id', False)

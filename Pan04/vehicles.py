@@ -36,12 +36,12 @@ class Vehicle:
                 return False
         except Exception as e:
             print(e)
-            Logger.add_to_log(e)
+            log.add_to_log(e)
 
 ###uncomment to check update_csv
-# vehicle = Vehicle()
-# row_dict = {'id': 4, 'make': 'Skoda', 'model':'Yeti', 'fuel':'gasoline', 'last_test':'04/1/2020'}
-# vehicle.update_csv(4, **row_dict)
+vehicle = Vehicle()
+row_dict = {'id': 4, 'make': 'Skoda', 'model':'Yeti', 'fuel':'gasoline', 'last_test':'04/1/2020'}
+vehicle.update_csv(4, **row_dict)
 
 
 # import definitions

@@ -2,7 +2,7 @@
 class User(dict):
     def __init__(self, user_id, name, instruments, created_at, last_accessed):
         dict.__init__(self,
-                      id=user_id,
+                      user_id=user_id,
                       name=name,
                       instruments=instruments,
                       created_at=created_at,

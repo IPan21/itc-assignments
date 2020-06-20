@@ -1,0 +1,130 @@
+.date-align-right {
+    font-size: smaller;
+    color:grey;
+    text-align: right;
+}
+
+.userName-align-left {
+    font-size: smaller;
+    color:grey;
+}
+
+.userName-align-left-blue {
+    color: #3f51b5
+
+}
+
+.username-link {
+    /* font-size: larger; */
+    color:white;
+    /* text-decoration: none; */
+}
+
+.navbar-link-font{
+ margin-left: 40px;
+ text-decoration: none;
+ font-size: 14px;
+ display: flex;
+ align-items: center;
+
+}
+
+.link-font {
+    color: grey;
+    font-size: 14px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.navbar-link-font-active{
+    color: white;
+    font-size: 14px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.student-dash-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+.student-dash-buttons{
+    color: darkslategrey;
+    background-color: gainsboro;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 16px;
+    margin: 5px
+}
+
+.search-input {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    width: 40vw;
+    background-color: transparent;
+    color: white;
+    font-size: large;
+    border-radius: 5px;
+}
+    
+input:focus, textarea:focus, select:focus{
+        outline: none;
+}
+
+.date-picker-text{
+    font-size: 14px;
+}
+
+
+
+.authInput {
+    width: 40vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 5px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    font-size: large;
+  }
+  
+  .authInput:focus {
+    border: 2px solid white;
+  }
+
+  .myButton{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    cursor:pointer;
+    border:none;
+}
+
+.myButton img {
+    width: 40vw;
+}
+
+.user-profile-wrapper{
+    padding: 20px;
+    background-color:#343a40;
+    border-radius: 10px;
+    color: white;
+    font-size: large;
+}
+
+.font-profile{
+    font-size: 30px;
+    margin: 20px;
+}
+
+.font-profile-grey{
+    color: grey;
+    font-size: 30px;
+    margin: 20px;
+    text-align: left;
+}
+

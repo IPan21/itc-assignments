@@ -23,9 +23,9 @@ validate = Validate()
 
 
 app.config['MONGO_hogwarts'] = 'reactloginreg'
-# app.config['MONGO_URI'] = 'mongodb://heroku_d555m8n2:vgtuidcblhui52k6l1l335i8v4@ds151247.mlab.com:51247/heroku_d555m8n2/reactloginreg?retryWrites=false'
-app.config['MONGO_URI'] = 'mongodb://heroku_d555m8n2:vgtuidcblhui52k6l1l335i8v4@ds151247.mlab.com:51247/heroku_d555m8n2?retryWrites=false'
-app.config['JWT_SECRET_KEY'] = 'secret'
+# app.config['MONGO_URI'] = 'mongodb://heroku...' # change it
+app.config['MONGO_URI'] = 'mongodb://heroku...' # change it
+app.config['JWT_SECRET_KEY'] = 'secret' # change it
 
 mongo = PyMongo(app)
 bcrypt = Bcrypt(app)
